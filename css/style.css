@@ -1,0 +1,89 @@
+/*.container{
+    width: 100%;
+}*/
+
+/*-----------------------------------NAV------------------------------------------------------------------------------------------------------------*/
+.navegador{
+    background-color: #587766;
+    text-align: center;
+    height: 60px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:  #ECC5BC;
+    }
+
+.navegador ul li{
+    display: inline;
+}
+
+.logo_tipo{
+    float: left;
+    padding: 0px;
+    margin: 5px;
+    padding-left: 15px;
+   
+}
+
+.home_cabecalho{
+
+background-color: #ECC5BC;
+color: #141D25;
+
+
+}
+
+.contato_cabecalho{
+background-color: #141D25;
+color: #E3E1E0;
+float: right;
+padding: 0px;
+margin: 5px;
+padding-left: 15px;
+}
+
+nav img{
+    border-width: 1px;
+    border-style: solid;
+    border-color:  #ECC5BC;
+}
+/*-----------------------------NAV------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------Cabecalho------------------------------------------------------------------------------------------------------------*/
+
+
+.cabecalho{
+
+background-color: #B56E82;
+height: 400px;
+border-width: 1px;
+border-style: solid;
+border-color:  #ECC5BC;
+
+}
+
+
+
+/*-----------------------------Cabecalho------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------Principal------------------------------------------------------------------------------------------------------------*/
+
+
+
+.parte_principal{
+background-color: #DFD5DB;
+height: 900px;
+
+
+}
+
+.imagem_principal{
+border-width: 1px;
+border-style: solid;
+border-color:  #ECC5BC;
+}
+
+/*-----------------------------Principal------------------------------------------------------------------------------------------------------------*/
+
+
+.rodape{
+background-color: #141D25;
+height: 400px;
+}
