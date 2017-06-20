@@ -12,6 +12,8 @@
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="icon" href="img/favicon2.png" sizes="16x16">
     <link rel="icon" href="img/favicon2.png" sizes="32x32">
 </head>
@@ -19,23 +21,24 @@
 <body>
     <div class="container">
 
-
+        
         <nav class="navegador">
-            <div class="logo_tipo">
-                <img src="img/favicon2.png" height="50" width="50">
-            </div>
-            <ul>
-                <li class="home_cabecalho">Home</li>
-                <li>Missa</li>
-                <li>Rosário</li>
-                <li>Vídeos</li>
-                <li>Notificações</li>
-                <li>Configurações</li>
-                <div class="contato_cabecalho">
-                    <h3>Contato</h3>
+
+            <div class="logo_tipo"><img src="img/favicon2.png" height="32" width="32"></div>
+                <div class="margin_navegador">
+                    <ul>
+                        <li class="home_cabecalho">Home</li>
+                        <li>Missa</li>
+                        <li>Rosário</li>
+                        <li>Vídeos</li>
+                        <li>Notificações</li>
+                        <li>Configurações</li>
+                        <li class="contato_cabecalho">Contato</li>
+                    </ul>
                 </div>
-            </ul>
+           
         </nav>
+            
         <!--class="navegador">-->
 
 
@@ -43,20 +46,21 @@
 
         <header class="cabecalho">
 
-            <h1>Sacramentum</h1>
+            <h1 class="titulo_cabecalho">Sacramentum</h1>
 
-            <h4>Datur intra domum ritum sacramenti una antigaz Religio Romanorum sequebantur qui principio belli daret hostibus
+            <h4 class="texto_cabecalho">Datur intra domum ritum sacramenti una antigaz Religio Romanorum sequebantur qui principio belli daret hostibus
                 militari osse. Cives finis acquiritur per os Romam antigua et legit in religionis mutatio milite complent.</h4>
 
-            <form action="">
+            <div class="formulario_cabecalho">
+                <form action="">
+                    
+                    <input class="formulario_cabecalho_texto" type="text" name="email" value="Email">
                 
-                <input type="text" name="email" value="Email">
-               
-                <input type="text" name="password" value="Password">
-               
-                <input type="submit" value="Sign up">
-            </form>
-
+                    <input class="formulario_cabecalho_texto" type="text" name="password" value="Password">
+                
+                    <input class="formulario_cabecalho_botao" type="submit" value="Sign up">
+                </form>
+            </div>
 
 
         </header>
