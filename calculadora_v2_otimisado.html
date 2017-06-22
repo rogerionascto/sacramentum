@@ -30,6 +30,7 @@
         <input type="number" id="n2"> <br /> <br />
 
         <select id="opcao">
+                <option selected value="">Selecionar</option>
                 <option value="somar">Somar</option>
                 <option value="subtrair">Subtrair</option>
                 <option value="dividir">Dividir</option>
@@ -58,9 +59,9 @@
 
              */
 
-            if (numero1 == "" || numero2 == "") {
+            if (numero1 == "" || numero2 == "" || op == "") {
 
-                alert("Para calcular é necessário digitar os números!");
+                alert("Para calcular é necessário digitar os números e selecionar uma opção válida!");
                 resultado="";
             }
 
