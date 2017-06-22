@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Calculadora</title>
+    <meta charset="UTF-8">
+    <!-- força a pagina a abrir com a largura do dispositivo - fica responsivo.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS - O navegador ler da esquerda para a direita de cima para baixo. 
+        O navegador irá considerar sempre o ultimo declarado sobrepondo os anteriores.-->
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="icon" href="img/favicon2.png" sizes="16x16">
+    <link rel="icon" href="img/favicon2.png" sizes="32x32">
+    <script src="js/app.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+    <form>
+        <label for="n1">Número 1:</label>
+        <input type="number" id="n1"> <br /> <br />
+
+        <label for="n2">Número 2:</label>
+        <input type="number" id="n2"> <br /> <br />
+
+        <select id="opcao">
+                <option value="somar">Somar</option>
+                <option value="subtrair">Subtrair</option>
+                <option value="dividir">Dividir</option>
+                <option value="multiplicar">Multiplicar</option>
+
+        </select>
+
+        <input type="button" value="Calcular" onclick="calcular();"><br /> <br />
+        <output id="resultado"></output> <br /> <br />
+
+
+    </form>
+
+    <script>
+        function calcular() {
+            var op = document.getElementById("opcao").value
+            /* alert(op)*/
+
+            if (op == "somar") {
+
+                somar();
+            }
+
+            else
+                if (op == "subtrair") {
+                    subtrair();
+                }
+                else
+                    if (op == "dividir") {
+                        dividir();
+                    }
+                    else
+                        if (op == "multiplicar") {
+                            multiplicar();
+                        }
+
+                        else {
+                            alert("Opção desconhecida");
+                        }
+        }
+
+
+        function somar() {
+
+            var numero1;
+            var numero2;
+            var resultado;
+
+            numero1 = document.getElementById("n1").value;
+            numero2 = document.getElementById("n2").value;
+            resultado = parseInt(numero1) + parseInt(numero2);
+            document.getElementById("resultado").innerText = resultado;
+
+        }
+        function subtrair() {
+
+            var numero1;
+            var numero2;
+            var resultado;
+
+            numero1 = document.getElementById("n1").value;
+            numero2 = document.getElementById("n2").value;
+            resultado = parseInt(numero1) - parseInt(numero2);
+            document.getElementById("resultado").innerText = resultado;
+
+        }
+
+        function multiplicar() {
+
+            var numero1;
+            var numero2;
+            var resultado;
+
+            numero1 = document.getElementById("n1").value;
+            numero2 = document.getElementById("n2").value;
+            resultado = parseInt(numero1) * parseInt(numero2);
+            document.getElementById("resultado").innerText = resultado;
+        }
+
+        function dividir() {
+
+            var numero1;
+            var numero2;
+            var resultado;
+
+            numero1 = document.getElementById("n1").value;
+            numero2 = document.getElementById("n2").value;
+            resultado = parseInt(numero1) / parseInt(numero2);
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+
+</html>
