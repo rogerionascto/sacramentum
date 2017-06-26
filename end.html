@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cadastro </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>
+        Formulário de Cadastro
+    </h1>
+
+    <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome"></input>
+        <br><br>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" min="0" max="150"></input>
+        <br><br>
+        <label>É brasileiro:</label>
+        <input type="checkbox" name="brasileiro" value="brasileiro" onchange="mostarGringo();">
+        <span id="este-egg"></span>
+        <br><br>
+        <label for="">Sexo:</label>
+        <input type="radio" value="masculino" name="sexo">Masculino</input>
+        <input type="radio" value="feminino" name="sexo">Feminino</input>
+        <br><br>
+        <label for="observacoes">Observações:</label> <br>
+        <textarea style="resize:none" id="observacoes" rows="5" cols="30">
+    </textarea>
+        <br><br>
+        <input type="button" id="cadastrar" value="Cadastrar" onclick="validarFormulario()"></input>
+    </form>
+
+    <script>
+        function validarFormulario() {
+
+            //debugger;
+
+            var nome, idade, sexo, observacoes, masc, fem, brasileiro, br;
+
+            nome = document.getElementById("nome").value;
+            idade = parseInt(document.getElementById("idade").value);
+            sexo = document.getElementsByName("sexo");//não pega o valor, pois necessita do arrey
+            observacoes = document.getElementById("observacoes").value;
+
+            //Validando nome
+            /*nome.trim() o trim() elimina os espaços da direita e da esquerda, depois ele vai comparar se tem espaços vazios */
+            if (nome.trim() == "") {
+                alert("Campo nome está vazio! Por favor digitar o seu nome, obrigado.");
+            }
+
+            //validando idade
+
+            if (isNaN(idade)) {
+                idade = 0;
+            }
+
+            if ((idade < 18) || (idade > 150)) {
+
+                alert("A idade mínima é de 18 e a máxima é 150");
+            }
+           
+            //validando sexo
+            masc = sexo[0].checked;
+            fem = sexo[1].checked;
+            /*se masc for fale e fem for false a condição do if será verdadeiro e executa o if. 
+            Se um ou o outro sempre dará false e o if não será executado
+            masc==false? sim && fem==false? sim então dois sim a condição do if é sim*/
+            if (masc == false && fem == false) {
+
+                alert("Informar o sexo");
+            }
+        }
+ 
+        function mostarGringo() {
+            debugger;
+            //capta o array
+            br = document.getElementsByName("brasileiro");
+            //seleciona a primeira posição do array
+            brasileiro = br[0].checked;
+            //brasileiro é true pois o br é booleano
+            if (brasileiro) {
+                document.getElementById("este-egg").innerText = "Olá Brasileiro";
+            } else {
+                document.getElementById("este-egg").innerText = "Olá Gringo";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
