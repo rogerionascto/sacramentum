@@ -6,6 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .hide{
+            display: none;
+        }
+
+        .show{
+            display: inline;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,6 +37,17 @@
         <input type="radio" value="masculino" name="sexo">Masculino</input>
         <input type="radio" value="feminino" name="sexo">Feminino</input>
         <br><br>
+        <label for="">Documentação:</label>
+        <select id="opcao">
+            <option selected value="">Selecione</option>
+            <option value="rg">RG</option>
+            <option value="cpf">CPF</option>
+            <option value="cnh">CNH</option>
+        </select>
+        <input class="hide" type="text" id="rg" maxlength="10" placeholder="Digite seu RG">
+        <input class="hide" type="number" id="cpf" maxlength="11" placeholder="Digite seu CPF">
+        <input class="hide" type="number" id="cnh" maxlength="11" placeholder="Digite sua CNH">
+        <br><br>
         <label for="observacoes">Observações:</label> <br>
         <textarea style="resize:none" id="observacoes" rows="5" cols="30">
     </textarea>
@@ -40,17 +60,19 @@
 
             //debugger;
 
-            var nome, idade, sexo, observacoes, masc, fem, brasileiro, br;
+            var nome, idade, sexo, observacoes, masc, fem, brasileiro, br, outros, i, selecionouSexo, op;
 
             nome = document.getElementById("nome").value;
             idade = parseInt(document.getElementById("idade").value);
             sexo = document.getElementsByName("sexo");//não pega o valor, pois necessita do arrey
             observacoes = document.getElementById("observacoes").value;
+            op = document.getElementById("opcao").value;
 
             //Validando nome
             /*nome.trim() o trim() elimina os espaços da direita e da esquerda, depois ele vai comparar se tem espaços vazios */
             if (nome.trim() == "") {
                 alert("Campo nome está vazio! Por favor digitar o seu nome, obrigado.");
+                return;
             }
 
             //validando idade
@@ -62,22 +84,44 @@
             if ((idade < 18) || (idade > 150)) {
 
                 alert("A idade mínima é de 18 e a máxima é 150");
+                return;
             }
-           
+
             //validando sexo
+            /*
             masc = sexo[0].checked;
             fem = sexo[1].checked;
-            /*se masc for fale e fem for false a condição do if será verdadeiro e executa o if. 
+            outros = sexo[2].checked;
+            se masc for fale e fem for false a condição do if será verdadeiro e executa o if. 
             Se um ou o outro sempre dará false e o if não será executado
-            masc==false? sim && fem==false? sim então dois sim a condição do if é sim*/
-            if (masc == false && fem == false) {
+            masc==false? sim && fem==false? sim então dois sim a condição do if é sim
+            if ((masc == false) && (fem == false) && (outros==false)) {
 
                 alert("Informar o sexo");
+            }*/
+
+            selecionouSexo = false;
+
+            for (i = 0; i < sexo.length; i++) {
+
+                if (sexo[i].checked == true) {
+                    selecionouSexo = true;
+                }
+
             }
+
+            if (selecionouSexo == false) {
+                alert("Informar o sexo");
+                return;
+            }
+
+            
+
+            alert("Cadastro enviado ao banco de dados!");
         }
- 
+
         function mostarGringo() {
-            debugger;
+            //debugger;
             //capta o array
             br = document.getElementsByName("brasileiro");
             //seleciona a primeira posição do array
