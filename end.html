@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
     <style>
-        .hide{
+        .hide {
             display: none;
         }
 
-        .show{
+        .show {
             display: inline;
         }
     </style>
@@ -38,15 +38,15 @@
         <input type="radio" value="feminino" name="sexo">Feminino</input>
         <br><br>
         <label for="">Documentação:</label>
-        <select id="opcao">
+        <select id="opcao" onchange="alteraDocumentoInput(this.value);">
             <option selected value="">Selecione</option>
             <option value="rg">RG</option>
             <option value="cpf">CPF</option>
             <option value="cnh">CNH</option>
         </select>
-        <input class="hide" type="text" id="rg" maxlength="10" placeholder="Digite seu RG">
-        <input class="hide" type="number" id="cpf" maxlength="11" placeholder="Digite seu CPF">
-        <input class="hide" type="number" id="cnh" maxlength="11" placeholder="Digite sua CNH">
+        <input class="hide" type="text" id="rg" maxlength="10" placeholder="Digite seu RG" />
+        <input class="hide" type="number" id="cpf" maxlength="11" placeholder="Digite seu CPF" />
+        <input class="hide" type="number" id="cnh" maxlength="11" placeholder="Digite sua CNH" />
         <br><br>
         <label for="observacoes">Observações:</label> <br>
         <textarea style="resize:none" id="observacoes" rows="5" cols="30">
@@ -60,13 +60,17 @@
 
             //debugger;
 
-            var nome, idade, sexo, observacoes, masc, fem, brasileiro, br, outros, i, selecionouSexo, op;
+            var nome, idade, sexo, observacoes, masc, fem, brasileiro, br, outros, i, selecionouSexo, op, rgValor, cnhValor, cpfValor;
 
             nome = document.getElementById("nome").value;
             idade = parseInt(document.getElementById("idade").value);
             sexo = document.getElementsByName("sexo");//não pega o valor, pois necessita do arrey
             observacoes = document.getElementById("observacoes").value;
             op = document.getElementById("opcao").value;
+            rgValor = document.getElementById("rg").value;
+            cnhValor = document.getElementById("cnh").value;
+            cpfValor = document.getElementById("cpf").value;
+
 
             //Validando nome
             /*nome.trim() o trim() elimina os espaços da direita e da esquerda, depois ele vai comparar se tem espaços vazios */
@@ -115,12 +119,29 @@
                 return;
             }
 
-            
+            if (op == "") {
+                alert("Informar a documentação");
+                return;
+            }
+
+            if (rgValor == ""){
+                alert("Informar o rg");
+                return;
+                
+            }else if (cpfValor == ""){
+                alert("Informar o CPF");
+                return;
+            }else  if (cnhValor == ""){
+                alert("Informar o cnh");
+                return;
+            }
 
             alert("Cadastro enviado ao banco de dados!");
         }
 
         function mostarGringo() {
+            var brasileiro, br;
+         
             //debugger;
             //capta o array
             br = document.getElementsByName("brasileiro");
@@ -132,6 +153,69 @@
             } else {
                 document.getElementById("este-egg").innerText = "Olá Gringo";
             }
+
+        }
+
+        function alteraDocumentoInput(op) {
+            var  rgValor, cnhValor, cpfValor;
+
+            rgValor = document.getElementById("rg");
+            cnhValor = document.getElementById("cnh");
+            cpfValor = document.getElementById("cpf");
+            cpfValor.classList.add("hide");
+            rgValor.classList.add("hide");
+            cnhValor.classList.add("hide");
+
+            switch (op) {
+                case "rg":
+                    rgValor.classList.remove("hide");
+                    break;
+                case "cnh":
+                    cnhValor.classList.remove("hide");
+                     break;
+                case "cpf":
+                    cpfValor.classList.remove("hide");
+                                        
+                    break;
+                default:
+                    cnhValor.classList.add("hide");
+                   
+
+            }
+
+            // debugger;
+            /*
+           
+            if (op == "rg") {
+                
+                rgValor.classList.remove("hide");
+                cnhValor.classList.add("hide");
+                cpfValor.classList.add("hide");
+
+            }
+            else if (op == "cnh") {
+
+                
+                cnhValor.classList.remove("hide");
+                rgValor.classList.add("hide");
+                cpfValor.classList.add("hide");
+                
+
+
+            } else if (op == "cpf") {
+
+                
+                cpfValor.classList.remove("hide");
+                rgValor.classList.add("hide");
+                cnhValor.classList.add("hide");
+                
+
+            }else if (op == ""){
+                 cnhValor.classList.add("hide");
+                 cpfValor.classList.add("hide");
+                 rgValor.classList.add("hide");
+
+            }*/
 
         }
     </script>
