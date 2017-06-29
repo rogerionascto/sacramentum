@@ -58,7 +58,7 @@
     <script>
         function validarFormulario() {
 
-            //debugger;
+            
 
             var nome, idade, sexo, observacoes, masc, fem, brasileiro, br, outros, i, selecionouSexo, op, rgValor, cnhValor, cpfValor;
 
@@ -104,7 +104,20 @@
                 alert("Informar o sexo");
             }*/
 
+            //Resolvendo com While
             selecionouSexo = false;
+
+            i=0;
+            while (i < sexo.length){
+                if (sexo[i].checked == true) {
+                    selecionouSexo = true;
+                }
+                i++;
+            }
+
+           /* resolvendo com For
+           
+           
 
             for (i = 0; i < sexo.length; i++) {
 
@@ -112,7 +125,7 @@
                     selecionouSexo = true;
                 }
 
-            }
+            }*/
 
             if (selecionouSexo == false) {
                 alert("Informar o sexo");
@@ -124,14 +137,15 @@
                 return;
             }
 
-            if (rgValor == ""){
+            if (rgValor.trim() == "" && op == "rg") {
                 alert("Informar o rg");
                 return;
-                
-            }else if (cpfValor == ""){
+
+            } else if (cpfValor.trim() == "" && op == "cpf") {
                 alert("Informar o CPF");
                 return;
-            }else  if (cnhValor == ""){
+
+            } else if (cnhValor.trim() == "" && op == "cnh") {
                 alert("Informar o cnh");
                 return;
             }
@@ -141,8 +155,8 @@
 
         function mostarGringo() {
             var brasileiro, br;
-         
-            //debugger;
+
+          
             //capta o array
             br = document.getElementsByName("brasileiro");
             //seleciona a primeira posição do array
@@ -157,7 +171,8 @@
         }
 
         function alteraDocumentoInput(op) {
-            var  rgValor, cnhValor, cpfValor;
+            
+            var rgValor, cnhValor, cpfValor;
 
             rgValor = document.getElementById("rg");
             cnhValor = document.getElementById("cnh");
@@ -172,18 +187,18 @@
                     break;
                 case "cnh":
                     cnhValor.classList.remove("hide");
-                     break;
+                    break;
                 case "cpf":
                     cpfValor.classList.remove("hide");
-                                        
+
                     break;
                 default:
                     cnhValor.classList.add("hide");
-                   
+
 
             }
 
-            // debugger;
+            // 
             /*
            
             if (op == "rg") {
